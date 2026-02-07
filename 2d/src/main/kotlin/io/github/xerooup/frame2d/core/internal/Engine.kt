@@ -48,10 +48,10 @@ class Engine(private val settings: Settings, private val game: Game) {
     private fun initWindow() {
         if (!GLFW.glfwInit()) throw IllegalStateException("failed to initialize glfw")
         GLFW.glfwDefaultWindowHints()
-        if (!settings.decorated) {
-            GLFW.glfwWindowHint(GLFW.GLFW_DECORATED, GLFW.GLFW_FALSE)
-            println(GLFW.GLFW_FALSE)
-        }
+
+        if (!settings.decorated) GLFW.glfwWindowHint(GLFW.GLFW_DECORATED, GLFW.GLFW_FALSE)
+        if (!settings.resizable) GLFW.glfwWindowHint(GLFW.GLFW_RESIZABLE, GLFW.GLFW_FALSE)
+
         window = GLFW.glfwCreateWindow(
             settings.width,
             settings.height,

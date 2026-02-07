@@ -1,12 +1,12 @@
 package io.github.xerooup.frame2d.graphics
 
 import io.github.xerooup.frame2d.core.camera.Camera
-import io.github.xerooup.frame2d.graphics.objects.Font
-import io.github.xerooup.frame2d.graphics.objects.Text
+import io.github.xerooup.frame2d.graphics.objects.text.Font
+import io.github.xerooup.frame2d.graphics.objects.text.Text
 import io.github.xerooup.frame2d.graphics.objects.Texture
-import io.github.xerooup.frame2d.graphics.objects.Tile
-import io.github.xerooup.frame2d.graphics.objects.TileMap
-import io.github.xerooup.frame2d.graphics.objects.Tileset
+import io.github.xerooup.frame2d.graphics.objects.tile.Tile
+import io.github.xerooup.frame2d.graphics.objects.tile.TileMap
+import io.github.xerooup.frame2d.graphics.objects.tile.Tileset
 
 interface DrawContext {
     fun pixel(x: Int, y: Int, color: Color = Color.WHITE)

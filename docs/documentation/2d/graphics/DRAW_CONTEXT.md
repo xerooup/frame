@@ -2,8 +2,6 @@
 using DrawContext, we can draw figures or textures on our game screen<br><br>
 let's not write the full code, but instead show an example of its usage in the **render** function right away:
 ```kt 
-import io.github.xerooup.frame2d.graphics.DrawContext
-
 override fun render(draw: DrawContext) {
     draw.pixel(X, Y, Color)
     

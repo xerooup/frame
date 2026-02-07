@@ -5,9 +5,9 @@ import io.github.xerooup.frame2d.graphics.Color
 import io.github.xerooup.frame2d.graphics.DrawContext
 import io.github.xerooup.frame2d.graphics.FrameBuffer
 import io.github.xerooup.frame2d.graphics.objects.Texture
-import io.github.xerooup.frame2d.graphics.objects.Tile
-import io.github.xerooup.frame2d.graphics.objects.TileMap
-import io.github.xerooup.frame2d.graphics.objects.Tileset
+import io.github.xerooup.frame2d.graphics.objects.tile.Tile
+import io.github.xerooup.frame2d.graphics.objects.tile.TileMap
+import io.github.xerooup.frame2d.graphics.objects.tile.Tileset
 import kotlin.math.abs
 
 class DrawContextImpl(private val buffer: FrameBuffer) : DrawContext {

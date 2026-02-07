@@ -1,6 +1,6 @@
 package io.github.xerooup.frame2d.core
 
-import io.github.xerooup.frame2d.graphics.objects.TileMap
+import io.github.xerooup.frame2d.graphics.objects.tile.TileMap
 
 class MapLoader {
     // load from CSV file in resources

@@ -2,9 +2,6 @@
 with AudioManager, we gain more capabilities for working with sounds<br><br>
 let's look at the methods of the AudioManager:
 ```kt 
-import io.github.xerooup.frame2d.audio.Sound
-import io.github.xerooup.frame2d.audio.AudioManager
-
 // changing the state of sounds
 AudioManager.pauseAll()
 AudioManager.resumeAll()

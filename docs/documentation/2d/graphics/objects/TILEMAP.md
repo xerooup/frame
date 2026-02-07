@@ -2,8 +2,6 @@
 a tilemap is a grid that builds your game world<br><br>
 let's see how to manage tiles and create a tilemap:
 ```kt 
-import io.github.xerooup.frame2d.graphics.objects.Tileset
-
 class MyGame : Game {
     private lateinit var tileset: Tileset
     private lateinit var tilemap: TileMap

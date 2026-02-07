@@ -1,4 +1,6 @@
-package io.github.xerooup.frame2d.graphics.objects
+package io.github.xerooup.frame2d.graphics.objects.tile
+
+import io.github.xerooup.frame2d.graphics.objects.Texture
 
 class Tileset(val texture: Texture, val tileWidth: Int, val tileHeight: Int) {
     val tilesPerRow = texture.width / tileWidth

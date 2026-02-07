@@ -2,14 +2,6 @@
 think of a game scene as a room. entity classes are all the things you can put in that room: the player, an enemy, a treasure chest, a flying bullet.<br><br>
 let's examine an example of using entities:
 ```kt
-import io.github.xerooup.frame2d.core.Game
-import io.github.xerooup.frame2d.core.Settings
-import io.github.xerooup.frame2d.entity.Entity
-import io.github.xerooup.frame2d.graphics.Color
-import io.github.xerooup.frame2d.graphics.DrawContext
-import io.github.xerooup.frame2d.input.Keyboard
-import io.github.xerooup.frame2d.input.Keyboard.Keys
-
 class MyGame : Game() {
     val player = Player()
 

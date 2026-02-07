@@ -1,8 +1,8 @@
-package io.github.xerooup.frame2d.graphics.objects
+package io.github.xerooup.frame2d.graphics.objects.text
 
 import io.github.xerooup.frame2d.graphics.Color
 import io.github.xerooup.frame2d.graphics.DrawContext
-import java.awt.Font as JavaFont
+import io.github.xerooup.frame2d.graphics.objects.Texture
 import java.awt.Graphics2D
 import java.awt.image.BufferedImage
 import java.io.ByteArrayInputStream
@@ -21,7 +21,7 @@ class Font private constructor(
 
     private val charsPerRow = texture.width / charWidth
 
-    fun render(draw: DrawContext, text: String, x: Int, y: Int, color: Color = Color.WHITE) {
+    fun render(draw: DrawContext, text: String, x: Int, y: Int, color: Color = Color.Companion.WHITE) {
         var offsetX = 0
         for (ch in text) {
             renderChar(draw, ch, x + offsetX, y, color)
@@ -63,7 +63,7 @@ class Font private constructor(
 
         private fun createTextureFromTtfData(fontData: ByteArray, size: Int): Texture {
             val byteStream = ByteArrayInputStream(fontData)
-            val awtFont = JavaFont.createFont(JavaFont.TRUETYPE_FONT, byteStream)
+            val awtFont = java.awt.Font.createFont(java.awt.Font.TRUETYPE_FONT, byteStream)
             val derivedFont = awtFont.deriveFont(size.toFloat())
 
             val charsPerRow = 16
@@ -117,7 +117,7 @@ class Font private constructor(
                 }
             }
 
-            return Texture.createFromData(imageWidth, imageHeight, pixels)
+            return Texture.Companion.createFromData(imageWidth, imageHeight, pixels)
         }
     }
 }

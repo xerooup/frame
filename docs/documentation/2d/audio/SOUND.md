@@ -2,8 +2,6 @@
 with sounds, we can add auditory feedback, create atmosphere in the game, and enhance the user's gaming experience<br><br>
 let's look at the methods of the Sound class:
 ```kt 
-import io.github.xerooup.frame2d.audio.Sound
-
 // create sound 
 val mySound = Sound("PATH/FROM/RESOURCES")
 

@@ -2,8 +2,6 @@
 using the MapLoader class you can load your maps saved as a CSV file<br><br>
 let's see how to load maps from csv:
 ```kt 
-import io.github.xerooup.frame2d.core.MapLoader
-
 class MyGame : Game {
     private lateinit var tileset: Tileset
     private lateinit var tilemap: TileMap

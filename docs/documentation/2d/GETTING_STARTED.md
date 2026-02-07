@@ -3,13 +3,6 @@ welcome to frame2d documentation!<br>
 below is the code with comments that will help you understand the basics of the engine
 <br><br>
 ```kt
-import io.github.xerooup.frame2d.core.Game
-import io.github.xerooup.frame2d.core.Settings
-import io.github.xerooup.frame2d.graphics.Color
-import io.github.xerooup.frame2d.graphics.DrawContext
-
-// main game class
-// within the main class reside the core functions of the game.
 class MyGame : Game() {
     override fun settings(settings: Settings) {
         // function for setting your game window
@@ -21,6 +14,7 @@ class MyGame : Game() {
         settings.iconPath = null
         // (all pathes in frame2d are relative to the 'resources' folder)
         settings.decorated = true // if false: borderless window (no close/minimize buttons)
+        settings.resizable = false
         settings.windowX = null // null - default
         settings.windowY = null 
     }

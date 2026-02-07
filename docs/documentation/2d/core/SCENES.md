@@ -3,15 +3,6 @@ scene management - a convenient feature. you create a scene (for example, a menu
 however, if you use the SceneManager, after switching from the Game class to another scene, you will not be able to return to the Game class, as it is not a scene. but you can implement the game logic in another scene, to which you can always return.<br><br>
 let's examine an example of using scenes:
 ```kt
-import io.github.xerooup.frame2d.core.Game
-import io.github.xerooup.frame2d.core.scene.Scene
-import io.github.xerooup.frame2d.core.scene.SceneManager
-import io.github.xerooup.frame2d.core.Settings
-import io.github.xerooup.frame2d.graphics.Color
-import io.github.xerooup.frame2d.graphics.DrawContext
-import io.github.xerooup.frame2d.input.Keyboard
-import io.github.xerooup.frame2d.input.Keyboard.Keys
-
 class MyGame : Game() {
     // create a single scene manager instance for the whole game
     private val sceneManager = SceneManager()

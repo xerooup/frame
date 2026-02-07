@@ -2,8 +2,6 @@
 with tilesets we can slice our textures into tiles<br><br>
 let's create a tileset:
 ```kt 
-import io.github.xerooup.frame2d.graphics.objects.Tileset
-
 class MyGame : Game {
     private lateinit var tileset: Tileset
     private lateinit var texture: Texture

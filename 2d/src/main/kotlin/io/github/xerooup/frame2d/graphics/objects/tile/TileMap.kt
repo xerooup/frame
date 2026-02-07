@@ -1,4 +1,4 @@
-package io.github.xerooup.frame2d.graphics.objects
+package io.github.xerooup.frame2d.graphics.objects.tile
 
 class TileMap(val width: Int, val height: Int, val tileSize: Int = 32) {
     private val tiles = IntArray(width * height) { 0 }

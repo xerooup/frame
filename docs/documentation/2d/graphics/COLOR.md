@@ -1,9 +1,7 @@
 # Colors
-in Blitzy there are ready-made colors and color constructors that use HEX<br><br>
+in Frame there are ready-made colors and color constructors that use HEX<br><br>
 ready-made colors:
 ```kt 
-import io.github.xerooup.frame2d.graphics.Color
-
 Color.WHITE
 Color.BLACK
 Color.RED
@@ -11,8 +9,7 @@ Color.GREEN
 Color.BLUE
 ```
 hex colors:
-```kt 
-import io.github.xerooup.frame2d.graphics.Color
+```kt
 // format: 0xRRGGBB
 
 Color(0xFFFFFF) // white

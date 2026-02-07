@@ -2,9 +2,6 @@
 keyboard input - the system that processes key presses on the keyboard and converts them into actions in the game (for example, character movement).<br><br>
 let's not write the full code, but instead show an example of its usage in the **update** function right away:
 ```kt 
-import io.github.xerooup.frame2d.input.Keyboard
-import io.github.xerooup.frame2d.input.Keyboard.Keys
-
 override fun update(delta: Float) {
     if (Keyboard.isKeyPressed(Keys.ANY_KEY)) {
         // your code

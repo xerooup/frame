@@ -2,15 +2,6 @@
 using hitboxes, we can set boundaries for entities and objects, thereby allowing us to check for collisions with other objects or entities.<br><br>
 let's examine an example of using hitboxes:
 ```kt
-import io.github.xerooup.frame2d.collision.Hitbox
-import io.github.xerooup.frame2d.core.Game
-import io.github.xerooup.frame2d.core.Settings
-import io.github.xerooup.frame2d.entity.Entity
-import io.github.xerooup.frame2d.graphics.Color
-import io.github.xerooup.graphics.DrawContext
-import io.github.xerooup.input.Keyboard
-import io.github.xerooup.input.Keyboard.Keys
-
 class MyGame : Game() {
     private val player = Player()
     private val walls = listOf(

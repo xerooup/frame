@@ -2,8 +2,6 @@
 using the camera class we can bind the screen camera to any entity<br><br>
 let's learn how to create, control, and render a camera:
 ```kt 
-import io.github.xerooup.frame2d.core.camera.Camera
-
 class MyGame : Game() {
     private lateinit var camera: Camera
 

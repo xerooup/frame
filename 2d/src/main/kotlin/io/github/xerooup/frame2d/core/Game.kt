@@ -12,6 +12,7 @@ data class Settings(
     var targetFPS: Int = 60,
     var background: Color = Color.WHITE,
     var icon: String? = null,
+    var resizable: Boolean = true,
     var windowX: Int? = null,
     var windowY: Int? = null
 )
