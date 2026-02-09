@@ -7,6 +7,8 @@ object Mouse {
     private var windowHandle = 0L
     private var lastX = 0.0
     private var lastY = 0.0
+    private var scrollY = 0.0
+    private var lastScrollY = 0.0
     private var currentButtonStates = mutableMapOf<Int, Boolean>()
     private var previousButtonStates = mutableMapOf<Int, Boolean>()
 
@@ -26,10 +28,25 @@ object Mouse {
         GLFW.glfwSetMouseButtonCallback(window) { _, button, action, _ ->
             currentButtonStates[button] = action == GLFW.GLFW_PRESS
         }
+        GLFW.glfwSetScrollCallback(window) { _, _, yoffset ->
+            scrollY += yoffset
+        }
     }
 
     fun getX(): Int = lastX.toInt()
     fun getY(): Int = lastY.toInt()
+
+    fun isScrolledUp(): Boolean {
+        return (scrollY - lastScrollY) > 0
+    }
+
+    fun isScrolledDown(): Boolean {
+        return (scrollY - lastScrollY) < 0
+    }
+
+    fun getScrollDirection(): Double {
+        return scrollY - lastScrollY
+    }
 
     fun isButtonPressed(button: Int): Boolean {
         return currentButtonStates[button] ?: false
@@ -53,5 +70,7 @@ object Mouse {
         for ((button, state) in currentButtonStates) {
             previousButtonStates[button] = state
         }
+
+        lastScrollY = scrollY
     }
 }

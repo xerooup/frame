@@ -3,17 +3,20 @@ mouse input - a system that processes mouse button clicks or obtains the current
 let's not write the full code, but instead show an example of its usage in the **update** function right away:
 ```kt 
 override fun update(delta: Float) {
-    if (Mouse.isButtonPressed(Buttons.ANY_BUTTON)) {
-        // your code
-    }
+    Mouse.isButtonPressed(Mouse.Buttons.ANY_BUTTON)
     
     // returns true only on the frame when button was pressed
-    if (Mouse.isButtonJustPressed(Buttons.ANY_BUTTON)) {
-        // your code
-    }
+    Mouse.isButtonJustPressed(Mouse.Buttons.ANY_BUTTON)
+    
+    // returns a negative value if backward and a positive value if forward
+    Mouse.getScrollDirection()
+    
+    //methods that check which direction the scroll was turned
+    Mouse.isScrolledUp()
+    Mouse.isScrolledDown()
     
     // get last cursor x or y
-    val mouseX: Int = Mouse.getX()
-    val mouseY: Int = Mouse.getY()
+    Mouse.getX()
+    Mouse.getY()
 }
 ```

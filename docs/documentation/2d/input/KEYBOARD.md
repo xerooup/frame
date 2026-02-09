@@ -3,13 +3,9 @@ keyboard input - the system that processes key presses on the keyboard and conve
 let's not write the full code, but instead show an example of its usage in the **update** function right away:
 ```kt 
 override fun update(delta: Float) {
-    if (Keyboard.isKeyPressed(Keys.ANY_KEY)) {
-        // your code
-    }
-
+    Keyboard.isKeyPressed(Keyboard.Keys.ANY_KEY)
+        
     // returns true only on the frame when key was pressed
-    if (Keyboard.isKeyJustPressed(Keys.ANY_KEY)) {
-        // your code
-    }
+    Keyboard.isKeyJustPressed(Keyboard.Keys.ANY_KEY)
 }
 ```
