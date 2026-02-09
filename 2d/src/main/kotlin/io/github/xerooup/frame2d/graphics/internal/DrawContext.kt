@@ -8,6 +8,7 @@ import io.github.xerooup.frame2d.graphics.objects.Texture
 import io.github.xerooup.frame2d.graphics.objects.tile.Tile
 import io.github.xerooup.frame2d.graphics.objects.tile.TileMap
 import io.github.xerooup.frame2d.graphics.objects.tile.Tileset
+import io.github.xerooup.frame2d.graphics.objects.ui.InterfaceContainer
 import kotlin.math.abs
 
 class DrawContextImpl(private val buffer: FrameBuffer) : DrawContext {
@@ -228,6 +229,12 @@ class DrawContextImpl(private val buffer: FrameBuffer) : DrawContext {
                     tile(tile, x + tx * tilemap.tileSize, y + ty * tilemap.tileSize)
                 }
             }
+        }
+    }
+
+    override fun ui(builder: InterfaceContainer) {
+        for (element in builder.elements) {
+            element.render(this)
         }
     }
 }

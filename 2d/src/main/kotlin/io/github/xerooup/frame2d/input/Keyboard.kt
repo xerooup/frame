@@ -1,38 +1,45 @@
 package io.github.xerooup.frame2d.input
 
 import org.lwjgl.glfw.GLFW
-import kotlin.collections.iterator
 
 object Keyboard {
     private var windowHandle = 0L
-
     private val currentKeyStates = mutableMapOf<Int, Boolean>()
     private val previousKeyStates = mutableMapOf<Int, Boolean>()
+
+    // используем ArrayList для стабильности
+    private val charBuffer = ArrayList<Char>()
 
     internal fun init(window: Long) {
         windowHandle = window
 
         GLFW.glfwSetKeyCallback(window) { _, key, _, action, _ ->
             if (key != GLFW.GLFW_KEY_UNKNOWN) {
-                currentKeyStates[key] = action == GLFW.GLFW_PRESS
+                currentKeyStates[key] = action != GLFW.GLFW_RELEASE
             }
+        }
+
+        GLFW.glfwSetCharCallback(window) { _, codepoint ->
+            charBuffer.add(codepoint.toChar())
         }
     }
 
-    fun isKeyPressed(keyCode: Int): Boolean {
-        return currentKeyStates[keyCode] ?: false
-    }
+    fun isKeyPressed(keyCode: Int): Boolean = currentKeyStates[keyCode] ?: false
 
     fun isKeyJustPressed(keyCode: Int): Boolean {
-        val current = currentKeyStates[keyCode] ?: false
-        val previous = previousKeyStates[keyCode] ?: false
-        return current && !previous
+        return (currentKeyStates[keyCode] ?: false) && !(previousKeyStates[keyCode] ?: false)
+    }
+
+    fun getChars(): List<Char> {
+        if (charBuffer.isEmpty()) return emptyList()
+        val result = charBuffer.toList()
+        charBuffer.clear()
+        return result
     }
 
     internal fun update() {
-        for ((key, state) in currentKeyStates) {
-            previousKeyStates[key] = state
-        }
+        previousKeyStates.clear()
+        previousKeyStates.putAll(currentKeyStates)
     }
 
     object Keys {

@@ -7,6 +7,7 @@ import io.github.xerooup.frame2d.graphics.objects.Texture
 import io.github.xerooup.frame2d.graphics.objects.tile.Tile
 import io.github.xerooup.frame2d.graphics.objects.tile.TileMap
 import io.github.xerooup.frame2d.graphics.objects.tile.Tileset
+import io.github.xerooup.frame2d.graphics.objects.ui.InterfaceContainer
 
 interface DrawContext {
     fun pixel(x: Int, y: Int, color: Color = Color.WHITE)
@@ -34,6 +35,8 @@ interface DrawContext {
     // camera RENDERING
     fun camera(camera: Camera)
     fun resetCamera()
+
+    fun ui(builder: InterfaceContainer)
 
     // text drawing
     fun text(text: Text, font: Font, x: Int, y: Int) {
