@@ -34,11 +34,21 @@ class DocViewer {
                 "COLOR.md": "Color",
                 "DRAW_CONTEXT.md": "DrawContext",
                 "objects": {
-                    "FONT.md": "Font",
-                    "TEXT.md": "Text",
+                    "text": {
+                        "FONT.md": "Font",
+                        "TEXT.md": "Text",
+                    },
+                    "tile": {
+                        "TILEMAP.md": "TileMap",
+                        "TILESET.md": "Tileset",
+                    },
+                    "ui": {
+                        "INTERFACE_BUILDER.md": "UIBuilder",
+                        "BUTTON.md": "Button",
+                        "LABEL.md": "Label",
+                        "INPUT.md": "Input"
+                    },
                     "TEXTURE.md": "Texture",
-                    "TILEMAP.md": "TileMap",
-                    "TILESET.md": "Tileset",
                 }
             }
         }
