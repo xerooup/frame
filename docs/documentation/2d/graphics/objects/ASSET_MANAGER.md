@@ -1,14 +1,14 @@
 # AssetManager
-To avoid storing each object in a variable or creating a new object every frame (which can cause memory leaks), you can use AssetManager, where you can load and retrieve your objects.
+To avoid storing each object in a variable or creating a new object every frame (which can cause memory leaks), you can use AssetManager, where you can load and retrieve your resources.
 ```kt 
-// id is needed so that we can somehow retrieve our object
+// id is needed so that we can somehow retrieve our resource
 AssetManager.loadTexture("id", Texture)
 AssetManager.loadFont("id", Font)
 AssetManager.loadSound("id", Sound)
 AssetManager.loadTileset("id", Tileset)
 AssetManager.loadTilemap("id", Tilemap)
 
-// each load-method also returns the same object you passed, allowing you to write like this:
+// each load-method also returns the same resource you passed, allowing you to write like this:
 val myTexture = AssetManager.loadTexture("my_texture", Texture("textures/my_texture.png"))
 // instead of:
 AssetManager.loadTexture("my_texture", Texture("textures/my_texture.png"))
