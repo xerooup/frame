@@ -49,6 +49,7 @@ class DocViewer {
                         "INPUT.md": "Input"
                     },
                     "TEXTURE.md": "Texture",
+                    "ASSET_MANAGER.md": "AssetManager",
                 }
             }
         }
