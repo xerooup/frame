@@ -21,6 +21,9 @@ class TextInputElement : InterfaceElement() {
     var textColor: Color = Color.WHITE
     var caretColor: Color = Color.WHITE
 
+    var placeholder: String = ""
+    var placeholderColor: Color = Color.GRAY
+
     var textOffsetX: Int = 8
     var textOffsetY: Int = 0
 
@@ -40,15 +43,17 @@ class TextInputElement : InterfaceElement() {
             draw.fillRect(x + shadowOffsetX, y + shadowOffsetY, width, height, shadowColor)
         }
 
-        // background
         val currentBg = if (isFocused) focusedColor else backgroundColor
         draw.fillRect(x, y, width, height, currentBg)
 
-        // text rendering with offsets
         val textY = y + (height - f.charHeight) / 2 + textOffsetY
-        f.render(draw, text, x + textOffsetX, textY, textColor)
 
-        // caret |
+        if (text.isEmpty()) {
+            f.render(draw, placeholder, x + textOffsetX, textY, placeholderColor)
+        } else {
+            f.render(draw, text, x + textOffsetX, textY, textColor)
+        }
+
         if (isFocused && System.currentTimeMillis() % 1000 < 500) {
             val textWidth = f.getStringWidth(text)
             val caretX = x + textOffsetX + textWidth + 2

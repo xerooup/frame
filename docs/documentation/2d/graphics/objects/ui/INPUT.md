@@ -3,6 +3,7 @@
 InterfaceBuilder {
     input {
         text = ""
+        placeholder = "Enter text..."
         // imagine that the font exists
         font = Font("fonts/myfont.ttf", 32)
         // will it be focused on creation
@@ -16,6 +17,7 @@ InterfaceBuilder {
             focusedColor = Color(0x737373)
             textColor = Color.WHITE
             caretColor = Color.WHITE // |
+            placeholderColor = Color.GRAY
 
             var textOffsetX: Int = 8 // 8 - default
             var textOffsetY: Int = 0

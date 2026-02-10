@@ -9,18 +9,18 @@
 ## Установка
 `build.gradle`:
 ```groovy 
-implementation 'io.github.xerooup:frame-2d:0.2.1'
+implementation 'io.github.xerooup:frame-2d:0.2.2'
 ```
 `build.gradle.kts`:
 ```kt 
-implementation("io.github.xerooup:frame-2d:0.2.1")
+implementation("io.github.xerooup:frame-2d:0.2.2")
 ```
 `pom.xml`:
 ```xml
 <dependency>
     <groupId>io.github.xerooup</groupId>
     <artifactId>frame-2d</artifactId>
-    <version>0.2.1</version>
+    <version>0.2.2</version>
 </dependency>
 ```
 
