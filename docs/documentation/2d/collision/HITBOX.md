@@ -1,83 +1,45 @@
-# Hitboxes and collisions
+## Hitbox
 using hitboxes, we can set boundaries for entities and objects, thereby allowing us to check for collisions with other objects or entities.<br><br>
 let's examine an example of using hitboxes:
 ```kt
-class MyGame : Game() {
-    private val player = Player()
-    private val walls = listOf(
-        // (x, y, width, height)
-        Hitbox(350f, 50f, 100f, 100f),  // wall 1
-        Hitbox(200f, 300f, 150f, 50f),  // wall 2
-        Hitbox(500f, 400f, 100f, 80f)   // wall 3
-    )
+// create hitboxes
+val rect = RectHitbox(100f, 100f, 50f, 50f)
+val circle = CircleHitbox(200f, 200f, 25f)
 
-    override fun settings(settings: Settings) {
-        settings.width = 800
-        settings.height = 600
-        settings.title = "My Game"
-        settings.background = Color.BLACK
-    }
+// rect-rect collision
+val rect2 = RectHitbox(120f, 120f, 30f, 30f)
+rect.intersects(rect2)
 
-    override fun create() {
-        player.create()
-    }
+// circle-circle collision
+val circle2 = CircleHitbox(220f, 220f, 15f)
+circle.intersects(circle2)
 
-    override fun update(delta: Float) {
-        // try to move
-        player.update(delta)
+// rect-circle collision works automatically
+rect.intersects(circle)
+circle.intersects(rect)
 
-        // check collisions with all walls
-        val checkWallCollision = player.collidesAny(walls)
-        if (checkWallCollision != null) {
-            val correction = player.getBounds().resolveCollision(checkWallCollision) // obtain a vector for reflection
-            // set player positions
-            player.x += correction.x
-            player.y += correction.y
-        }
-    }
+// check if a point is inside the hitbox
+rect.contains(mouseX, mouseY)
+circle.contains(mouseX, mouseY)
 
-    override fun render(draw: DrawContext) {
-        player.render(draw)
+// rect-specific methods
+val left = rect.left()
+val right = rect.right()
+val top = rect.top()
+val bottom = rect.bottom()
 
-        // draw all walls
-        for (wall in walls) {
-            draw.fillRect(
-                // we can retrieve the settings of our hitbox
-                wall.x.toInt(),
-                wall.y.toInt(),
-                wall.width.toInt(),
-                wall.height.toInt(),
-                Color.WHITE
-            )
-        }
-    }
-}
+// circle-specific property
+val radius = circle.radius
 
-class Player : Entity() {
-    private val speed = 200f
+// get center coordinates (works for both)
+val centerX = rect.centerX()
+val centerY = circle.centerY()
 
-    override fun create() {
-        x = 100f
-        y = 100f
-        width = 40f
-        height = 40f
-    }
+// resolve collision returns Vector2 with correction offsets
+val correction = rect.resolveCollision(circle)
+val correction2 = rect.resolveCollision(rect2)
+val correction3 = circle.resolveCollision(circle2)
 
-    override fun update(delta: Float) {
-        if (Keyboard.isKeyPressed(Keys.W)) y -= speed * delta
-        if (Keyboard.isKeyPressed(Keys.S)) y += speed * delta
-        if (Keyboard.isKeyPressed(Keys.A)) x -= speed * delta
-        if (Keyboard.isKeyPressed(Keys.D)) x += speed * delta
-    }
-
-    override fun render(draw: DrawContext) {
-        draw.fillRect(x.toInt(), y.toInt(), width.toInt(), height.toInt(), Color.WHITE)
-    }
-}
-
-fun main() {
-    Game.run(MyGame())
-}
+// Vector2 contains x and y components
+println("Correction: x=${correction.x}, y=${correction.y}")
 ```
-<br>
-when you run the code, three walls and a player will appear on the screen, which you can control. try crashing into a wall to test the hitboxes.
