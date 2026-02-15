@@ -23,7 +23,7 @@ public class Shader {
         glLinkProgram(programId);
 
         if (glGetProgrami(programId, GL_LINK_STATUS) == GL_FALSE) {
-            throw new RuntimeException("failed to link shader program: " + glGetProgramInfoLog(programId));
+            throw new RuntimeException("Failed to link shader program: " + glGetProgramInfoLog(programId));
         }
 
         glValidateProgram(programId);
@@ -35,7 +35,7 @@ public class Shader {
         glCompileShader(shaderId);
 
         if (glGetShaderi(shaderId, GL_COMPILE_STATUS) == GL_FALSE) {
-            throw new RuntimeException("failed to compile shader: " + glGetShaderInfoLog(shaderId));
+            throw new RuntimeException("Failed to compile shader: " + glGetShaderInfoLog(shaderId));
         }
 
         return shaderId;
@@ -64,6 +64,16 @@ public class Shader {
     public void setUniform(String name, float value) {
         int location = glGetUniformLocation(programId, name);
         glUniform1f(location, value);
+    }
+
+    public void setUniform(String name, int value) {
+        int location = glGetUniformLocation(programId, name);
+        glUniform1i(location, value);
+    }
+
+    public void setUniform(String name, boolean value) {
+        int location = glGetUniformLocation(programId, name);
+        glUniform1i(location, value ? 1 : 0);
     }
 
     public void cleanup() {

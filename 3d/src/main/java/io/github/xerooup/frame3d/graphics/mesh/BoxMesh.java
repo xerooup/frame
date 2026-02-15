@@ -22,43 +22,43 @@ public class BoxMesh extends BaseMesh {
         float g = color.g;
         float b = color.b;
 
-        // Vertices: position (x, y, z) + color (r, g, b) + normal (nx, ny, nz)
+        // Vertices: position (3) + color (3) + normal (3) + texCoord (2) = 11 floats
         vertices = new float[] {
                 // Front face (normal: 0, 0, 1)
-                -w, -h,  d,  r, g, b,  0, 0, 1,
-                w, -h,  d,  r, g, b,  0, 0, 1,
-                w,  h,  d,  r, g, b,  0, 0, 1,
-                -w,  h,  d,  r, g, b,  0, 0, 1,
+                -w, -h,  d,  r, g, b,  0, 0, 1,  0, 0,
+                w, -h,  d,  r, g, b,  0, 0, 1,  1, 0,
+                w,  h,  d,  r, g, b,  0, 0, 1,  1, 1,
+                -w,  h,  d,  r, g, b,  0, 0, 1,  0, 1,
 
                 // Back face (normal: 0, 0, -1)
-                -w, -h, -d,  r, g, b,  0, 0, -1,
-                w, -h, -d,  r, g, b,  0, 0, -1,
-                w,  h, -d,  r, g, b,  0, 0, -1,
-                -w,  h, -d,  r, g, b,  0, 0, -1,
+                -w, -h, -d,  r, g, b,  0, 0, -1,  1, 0,
+                w, -h, -d,  r, g, b,  0, 0, -1,  0, 0,
+                w,  h, -d,  r, g, b,  0, 0, -1,  0, 1,
+                -w,  h, -d,  r, g, b,  0, 0, -1,  1, 1,
 
                 // Top face (normal: 0, 1, 0)
-                -w,  h, -d,  r, g, b,  0, 1, 0,
-                -w,  h,  d,  r, g, b,  0, 1, 0,
-                w,  h,  d,  r, g, b,  0, 1, 0,
-                w,  h, -d,  r, g, b,  0, 1, 0,
+                -w,  h, -d,  r, g, b,  0, 1, 0,  0, 0,
+                -w,  h,  d,  r, g, b,  0, 1, 0,  0, 1,
+                w,  h,  d,  r, g, b,  0, 1, 0,  1, 1,
+                w,  h, -d,  r, g, b,  0, 1, 0,  1, 0,
 
                 // Bottom face (normal: 0, -1, 0)
-                -w, -h, -d,  r, g, b,  0, -1, 0,
-                w, -h, -d,  r, g, b,  0, -1, 0,
-                w, -h,  d,  r, g, b,  0, -1, 0,
-                -w, -h,  d,  r, g, b,  0, -1, 0,
+                -w, -h, -d,  r, g, b,  0, -1, 0,  0, 1,
+                w, -h, -d,  r, g, b,  0, -1, 0,  1, 1,
+                w, -h,  d,  r, g, b,  0, -1, 0,  1, 0,
+                -w, -h,  d,  r, g, b,  0, -1, 0,  0, 0,
 
                 // Right face (normal: 1, 0, 0)
-                w, -h, -d,  r, g, b,  1, 0, 0,
-                w,  h, -d,  r, g, b,  1, 0, 0,
-                w,  h,  d,  r, g, b,  1, 0, 0,
-                w, -h,  d,  r, g, b,  1, 0, 0,
+                w, -h, -d,  r, g, b,  1, 0, 0,  0, 0,
+                w,  h, -d,  r, g, b,  1, 0, 0,  0, 1,
+                w,  h,  d,  r, g, b,  1, 0, 0,  1, 1,
+                w, -h,  d,  r, g, b,  1, 0, 0,  1, 0,
 
                 // Left face (normal: -1, 0, 0)
-                -w, -h, -d,  r, g, b,  -1, 0, 0,
-                -w, -h,  d,  r, g, b,  -1, 0, 0,
-                -w,  h,  d,  r, g, b,  -1, 0, 0,
-                -w,  h, -d,  r, g, b,  -1, 0, 0
+                -w, -h, -d,  r, g, b,  -1, 0, 0,  1, 0,
+                -w, -h,  d,  r, g, b,  -1, 0, 0,  0, 0,
+                -w,  h,  d,  r, g, b,  -1, 0, 0,  0, 1,
+                -w,  h, -d,  r, g, b,  -1, 0, 0,  1, 1
         };
 
         indices = new int[] {

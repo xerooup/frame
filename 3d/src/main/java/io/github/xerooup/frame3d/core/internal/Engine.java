@@ -4,6 +4,8 @@ import io.github.xerooup.frame3d.core.Game;
 import io.github.xerooup.frame3d.core.Settings;
 import io.github.xerooup.frame3d.graphics.Color;
 import io.github.xerooup.frame3d.graphics.internal.RenderContextImpl;
+import io.github.xerooup.frame3d.input.Keyboard;
+import io.github.xerooup.frame3d.input.Mouse;
 import org.lwjgl.glfw.GLFWErrorCallback;
 import org.lwjgl.opengl.GL;
 
@@ -90,6 +92,9 @@ public class Engine {
 
         Color bg = settings.background;
         glClearColor(bg.r, bg.g, bg.b, 1f);
+
+        Keyboard.init(window);
+        Mouse.init(window);
     }
 
     private void loop() {
@@ -122,6 +127,9 @@ public class Engine {
 
             glfwSwapBuffers(window);
             glfwPollEvents();
+
+            Keyboard.update();
+            Mouse.update();
         }
 
         renderContext.cleanup();

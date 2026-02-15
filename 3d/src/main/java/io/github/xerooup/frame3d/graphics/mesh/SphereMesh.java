@@ -40,6 +40,9 @@ public class SphereMesh extends BaseMesh {
                 float y = cosTheta;
                 float z = sinPhi * sinTheta;
 
+                float u = (float)segment / segments;
+                float v = (float)ring / rings;
+
                 // Position
                 vertexList.add(x * radius);
                 vertexList.add(y * radius);
@@ -54,6 +57,10 @@ public class SphereMesh extends BaseMesh {
                 vertexList.add(x);
                 vertexList.add(y);
                 vertexList.add(z);
+
+                // Texture coordinate
+                vertexList.add(u);
+                vertexList.add(v);
             }
         }
 

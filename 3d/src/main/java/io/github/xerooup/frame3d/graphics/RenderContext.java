@@ -1,5 +1,6 @@
 package io.github.xerooup.frame3d.graphics;
 
+import io.github.xerooup.frame3d.graphics.material.Material;
 import io.github.xerooup.frame3d.graphics.mesh.Mesh;
 import io.github.xerooup.frame3d.graphics.shader.Shader;
 import org.joml.Vector3f;
@@ -9,6 +10,7 @@ public interface RenderContext {
     void mesh(Mesh mesh, Vector3f position);
     void mesh(Mesh mesh, Vector3f position, Vector3f rotation);
     void mesh(Mesh mesh, Vector3f position, Vector3f rotation, Vector3f scale);
+    void mesh(Mesh mesh, Material material, Vector3f position, Vector3f rotation, Vector3f scale);
 
     void setShader(Shader shader);
     void resetShader();

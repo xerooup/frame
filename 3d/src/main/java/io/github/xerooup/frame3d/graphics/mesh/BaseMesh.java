@@ -15,6 +15,7 @@ public abstract class BaseMesh implements Mesh {
     protected int ebo;
     protected int vertexCount;
 
+    // 11 floats per vertex: pos(3) + color(3) + normal(3) + texCoord(2)
     protected void setup(float[] vertices, int[] indices) {
         this.vertexCount = indices.length;
 
@@ -38,17 +39,23 @@ public abstract class BaseMesh implements Mesh {
         glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ebo);
         glBufferData(GL_ELEMENT_ARRAY_BUFFER, indexBuffer, GL_STATIC_DRAW);
 
+        int stride = 11 * Float.BYTES;
+
         // Position attribute (location = 0)
-        glVertexAttribPointer(0, 3, GL_FLOAT, false, 9 * Float.BYTES, 0);
+        glVertexAttribPointer(0, 3, GL_FLOAT, false, stride, 0);
         glEnableVertexAttribArray(0);
 
         // Color attribute (location = 1)
-        glVertexAttribPointer(1, 3, GL_FLOAT, false, 9 * Float.BYTES, 3 * Float.BYTES);
+        glVertexAttribPointer(1, 3, GL_FLOAT, false, stride, 3 * Float.BYTES);
         glEnableVertexAttribArray(1);
 
         // Normal attribute (location = 2)
-        glVertexAttribPointer(2, 3, GL_FLOAT, false, 9 * Float.BYTES, 6 * Float.BYTES);
+        glVertexAttribPointer(2, 3, GL_FLOAT, false, stride, 6 * Float.BYTES);
         glEnableVertexAttribArray(2);
+
+        // Texture coordinate attribute (location = 3)
+        glVertexAttribPointer(3, 2, GL_FLOAT, false, stride, 9 * Float.BYTES);
+        glEnableVertexAttribArray(3);
 
         glBindVertexArray(0);
     }

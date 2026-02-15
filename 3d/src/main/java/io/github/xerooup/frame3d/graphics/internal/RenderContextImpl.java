@@ -1,6 +1,8 @@
 package io.github.xerooup.frame3d.graphics.internal;
 
 import io.github.xerooup.frame3d.graphics.RenderContext;
+import io.github.xerooup.frame3d.graphics.material.Material;
+import io.github.xerooup.frame3d.graphics.material.MaterialType;
 import io.github.xerooup.frame3d.graphics.mesh.Mesh;
 import io.github.xerooup.frame3d.graphics.shader.DefaultShader;
 import io.github.xerooup.frame3d.graphics.shader.Shader;
@@ -78,13 +80,46 @@ public class RenderContextImpl implements RenderContext {
                 .rotateY((float)Math.toRadians(rotation.y))
                 .rotateX((float)Math.toRadians(rotation.x))
                 .rotateZ((float)Math.toRadians(rotation.z))
-                .scale(scale);  // <-- ДОБАВИЛИ МАСШТАБ
+                .scale(scale);
 
         currentShader.setUniform("model", model);
         currentShader.setUniform("view", view);
         currentShader.setUniform("projection", projection);
 
         mesh.render();
+
+        currentShader.unbind();
+    }
+
+    @Override
+    public void mesh(Mesh mesh, Material material, Vector3f position, Vector3f rotation, Vector3f scale) {
+        currentShader.bind();
+
+        model.identity()
+                .translate(position)
+                .rotateY((float)Math.toRadians(rotation.y))
+                .rotateX((float)Math.toRadians(rotation.x))
+                .rotateZ((float)Math.toRadians(rotation.z))
+                .scale(scale);
+
+        currentShader.setUniform("model", model);
+        currentShader.setUniform("view", view);
+        currentShader.setUniform("projection", projection);
+
+        // Texture or color
+        if (material.getType() == MaterialType.TEXTURE) {
+            currentShader.setUniform("useTexture", true);
+            currentShader.setUniform("textureSampler", 0);
+            material.getTexture().bind();
+        } else {
+            currentShader.setUniform("useTexture", false);
+        }
+
+        mesh.render();
+
+        if (material.getType() == MaterialType.TEXTURE) {
+            material.getTexture().unbind();
+        }
 
         currentShader.unbind();
     }
