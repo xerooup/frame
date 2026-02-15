@@ -14,7 +14,7 @@ public class CylinderMesh extends BaseMesh {
     }
 
     public CylinderMesh(Color color) {
-        this(0.5f, 1.0f, 16, color);
+        this(0.5f, 1.0f, 32, color);
     }
 
     public CylinderMesh(float radius, float height, int segments, Color color) {
@@ -27,11 +27,56 @@ public class CylinderMesh extends BaseMesh {
 
         float halfHeight = height / 2;
 
-        // Top and bottom centers
-        int topCenterIndex = 0;
-        int bottomCenterIndex = segments + 1;
+        // Generate side vertices
+        for (int i = 0; i <= segments; i++) {
+            float angle = i * 2 * (float)Math.PI / segments;
+            float x = (float)Math.cos(angle) * radius;
+            float z = (float)Math.sin(angle) * radius;
+            float nx = (float)Math.cos(angle);
+            float nz = (float)Math.sin(angle);
 
-        // Top center
+            // Top vertex
+            vertexList.add(x);
+            vertexList.add(halfHeight);
+            vertexList.add(z);
+            vertexList.add(r);
+            vertexList.add(g);
+            vertexList.add(b);
+            vertexList.add(nx);
+            vertexList.add(0f);
+            vertexList.add(nz);
+
+            // Bottom vertex
+            vertexList.add(x);
+            vertexList.add(-halfHeight);
+            vertexList.add(z);
+            vertexList.add(r);
+            vertexList.add(g);
+            vertexList.add(b);
+            vertexList.add(nx);
+            vertexList.add(0f);
+            vertexList.add(nz);
+        }
+
+        // Side indices
+        for (int i = 0; i < segments; i++) {
+            int topLeft = i * 2;
+            int bottomLeft = topLeft + 1;
+            int topRight = topLeft + 2;
+            int bottomRight = topRight + 1;
+
+            indexList.add(topLeft);
+            indexList.add(bottomLeft);
+            indexList.add(topRight);
+
+            indexList.add(topRight);
+            indexList.add(bottomLeft);
+            indexList.add(bottomRight);
+        }
+
+        int capStartIndex = vertexList.size() / 9;
+
+        // Top cap center
         vertexList.add(0f);
         vertexList.add(halfHeight);
         vertexList.add(0f);
@@ -42,7 +87,9 @@ public class CylinderMesh extends BaseMesh {
         vertexList.add(1f);
         vertexList.add(0f);
 
-        // Top circle
+        int topCenterIndex = capStartIndex;
+
+        // Top cap vertices
         for (int i = 0; i <= segments; i++) {
             float angle = i * 2 * (float)Math.PI / segments;
             float x = (float)Math.cos(angle) * radius;
@@ -59,7 +106,16 @@ public class CylinderMesh extends BaseMesh {
             vertexList.add(0f);
         }
 
-        // Bottom center
+        // Top cap indices
+        for (int i = 0; i < segments; i++) {
+            indexList.add(topCenterIndex);
+            indexList.add(topCenterIndex + i + 1);
+            indexList.add(topCenterIndex + i + 2);
+        }
+
+        int bottomCapStart = vertexList.size() / 9;
+
+        // Bottom cap center
         vertexList.add(0f);
         vertexList.add(-halfHeight);
         vertexList.add(0f);
@@ -70,7 +126,9 @@ public class CylinderMesh extends BaseMesh {
         vertexList.add(-1f);
         vertexList.add(0f);
 
-        // Bottom circle
+        int bottomCenterIndex = bottomCapStart;
+
+        // Bottom cap vertices
         for (int i = 0; i <= segments; i++) {
             float angle = i * 2 * (float)Math.PI / segments;
             float x = (float)Math.cos(angle) * radius;
@@ -87,66 +145,11 @@ public class CylinderMesh extends BaseMesh {
             vertexList.add(0f);
         }
 
-        // Side vertices (with outward normals)
-        int sideTopStart = vertexList.size() / 9;
-        for (int i = 0; i <= segments; i++) {
-            float angle = i * 2 * (float)Math.PI / segments;
-            float x = (float)Math.cos(angle) * radius;
-            float z = (float)Math.sin(angle) * radius;
-            float nx = (float)Math.cos(angle);
-            float nz = (float)Math.sin(angle);
-
-            // Top
-            vertexList.add(x);
-            vertexList.add(halfHeight);
-            vertexList.add(z);
-            vertexList.add(r);
-            vertexList.add(g);
-            vertexList.add(b);
-            vertexList.add(nx);
-            vertexList.add(0f);
-            vertexList.add(nz);
-
-            // Bottom
-            vertexList.add(x);
-            vertexList.add(-halfHeight);
-            vertexList.add(z);
-            vertexList.add(r);
-            vertexList.add(g);
-            vertexList.add(b);
-            vertexList.add(nx);
-            vertexList.add(0f);
-            vertexList.add(nz);
-        }
-
-        // Top cap indices
-        for (int i = 0; i < segments; i++) {
-            indexList.add(topCenterIndex);
-            indexList.add(i + 1);
-            indexList.add(i + 2);
-        }
-
         // Bottom cap indices
         for (int i = 0; i < segments; i++) {
             indexList.add(bottomCenterIndex);
             indexList.add(bottomCenterIndex + i + 2);
             indexList.add(bottomCenterIndex + i + 1);
-        }
-
-        // Side indices
-        for (int i = 0; i < segments; i++) {
-            int topLeft = sideTopStart + i * 2;
-            int topRight = topLeft + 2;
-            int bottomLeft = topLeft + 1;
-            int bottomRight = topRight + 1;
-
-            indexList.add(topLeft);
-            indexList.add(bottomLeft);
-            indexList.add(topRight);
-
-            indexList.add(topRight);
-            indexList.add(bottomLeft);
-            indexList.add(bottomRight);
         }
 
         // Convert to arrays
