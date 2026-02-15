@@ -4,3 +4,4 @@ plugins {
 rootProject.name = "frame"
 
 include("2d")
+include("3d")
