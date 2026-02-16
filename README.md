@@ -9,18 +9,18 @@ and include in commercial products, provided that the **Frame** itself and its m
 ## Installation
 `build.gradle`:
 ```groovy 
-implementation 'io.github.xerooup:frame-2d:0.3.0'
+implementation 'io.github.xerooup:frame-2d:0.3.1'
 ```
 `build.gradle.kts`:
 ```kt 
-implementation("io.github.xerooup:frame-2d:0.3.0")
+implementation("io.github.xerooup:frame-2d:0.3.1")
 ```
 `pom.xml`:
 ```xml
 <dependency>
     <groupId>io.github.xerooup</groupId>
     <artifactId>frame-2d</artifactId>
-    <version>0.3.0</version>
+    <version>0.3.1</version>
 </dependency>
 ```
 
