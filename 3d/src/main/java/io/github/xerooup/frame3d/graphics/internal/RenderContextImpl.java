@@ -106,7 +106,7 @@ public class RenderContextImpl implements RenderContext {
         currentShader.setUniform("projection", projection);
 
         // Texture or color
-        if (material.getType() == MaterialType.TEXTURE) {
+        if (material.type == MaterialType.TEXTURE) {
             currentShader.setUniform("useTexture", true);
             currentShader.setUniform("textureSampler", 0);
             material.getTexture().bind();
@@ -116,7 +116,7 @@ public class RenderContextImpl implements RenderContext {
 
         mesh.render();
 
-        if (material.getType() == MaterialType.TEXTURE) {
+        if (material.type == MaterialType.TEXTURE) {
             material.getTexture().unbind();
         }
 

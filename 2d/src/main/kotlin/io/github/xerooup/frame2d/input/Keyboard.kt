@@ -83,22 +83,6 @@ object Keyboard {
         const val NUM_8 = GLFW.GLFW_KEY_8
         const val NUM_9 = GLFW.GLFW_KEY_9
 
-        // special keys
-        const val SPACE = GLFW.GLFW_KEY_SPACE
-        const val ENTER = GLFW.GLFW_KEY_ENTER
-        const val ESCAPE = GLFW.GLFW_KEY_ESCAPE
-        const val SHIFT = GLFW.GLFW_KEY_LEFT_SHIFT
-        const val CTRL = GLFW.GLFW_KEY_LEFT_CONTROL
-        const val ALT = GLFW.GLFW_KEY_LEFT_ALT
-        const val TAB = GLFW.GLFW_KEY_TAB
-        const val BACKSPACE = GLFW.GLFW_KEY_BACKSPACE
-
-        // arrows
-        const val UP = GLFW.GLFW_KEY_UP
-        const val DOWN = GLFW.GLFW_KEY_DOWN
-        const val LEFT = GLFW.GLFW_KEY_LEFT
-        const val RIGHT = GLFW.GLFW_KEY_RIGHT
-
         // function keys
         const val F1 = GLFW.GLFW_KEY_F1
         const val F2 = GLFW.GLFW_KEY_F2
@@ -112,5 +96,71 @@ object Keyboard {
         const val F10 = GLFW.GLFW_KEY_F10
         const val F11 = GLFW.GLFW_KEY_F11
         const val F12 = GLFW.GLFW_KEY_F12
+
+        // Arrow keys
+        const val UP = GLFW.GLFW_KEY_UP
+        const val DOWN = GLFW.GLFW_KEY_DOWN
+        const val LEFT = GLFW.GLFW_KEY_LEFT
+        const val RIGHT = GLFW.GLFW_KEY_RIGHT
+
+        // Modifiers
+        const val SHIFT = GLFW.GLFW_KEY_LEFT_SHIFT
+        const val RIGHT_SHIFT = GLFW.GLFW_KEY_RIGHT_SHIFT
+        const val CTRL = GLFW.GLFW_KEY_LEFT_CONTROL
+        const val RIGHT_CTRL = GLFW.GLFW_KEY_RIGHT_CONTROL
+        const val ALT = GLFW.GLFW_KEY_LEFT_ALT
+        const val RIGHT_ALT = GLFW.GLFW_KEY_RIGHT_ALT
+        const val SUPER = GLFW.GLFW_KEY_LEFT_SUPER
+        const val RIGHT_SUPER = GLFW.GLFW_KEY_RIGHT_SUPER
+
+        // Special keys
+        const val SPACE = GLFW.GLFW_KEY_SPACE
+        const val ENTER = GLFW.GLFW_KEY_ENTER
+        const val TAB = GLFW.GLFW_KEY_TAB
+        const val BACKSPACE = GLFW.GLFW_KEY_BACKSPACE
+        const val ESC = GLFW.GLFW_KEY_ESCAPE
+        const val DELETE = GLFW.GLFW_KEY_DELETE
+        const val INSERT = GLFW.GLFW_KEY_INSERT
+        const val HOME = GLFW.GLFW_KEY_HOME
+        const val END = GLFW.GLFW_KEY_END
+        const val PAGE_UP = GLFW.GLFW_KEY_PAGE_UP
+        const val PAGE_DOWN = GLFW.GLFW_KEY_PAGE_DOWN
+        const val CAPS_LOCK = GLFW.GLFW_KEY_CAPS_LOCK
+        const val NUM_LOCK = GLFW.GLFW_KEY_NUM_LOCK
+        const val SCROLL_LOCK = GLFW.GLFW_KEY_SCROLL_LOCK
+        const val PAUSE = GLFW.GLFW_KEY_PAUSE
+        const val PRINT_SCREEN = GLFW.GLFW_KEY_PRINT_SCREEN
+
+        // Symbols
+        const val MINUS = GLFW.GLFW_KEY_MINUS
+        const val EQUALS = GLFW.GLFW_KEY_EQUAL
+        const val LEFT_BRACKET = GLFW.GLFW_KEY_LEFT_BRACKET
+        const val RIGHT_BRACKET = GLFW.GLFW_KEY_RIGHT_BRACKET
+        const val SEMICOLON = GLFW.GLFW_KEY_SEMICOLON
+        const val APOSTROPHE = GLFW.GLFW_KEY_APOSTROPHE
+        const val GRAVE_ACCENT = GLFW.GLFW_KEY_GRAVE_ACCENT
+        const val BACKSLASH = GLFW.GLFW_KEY_BACKSLASH
+        const val COMMA = GLFW.GLFW_KEY_COMMA
+        const val PERIOD = GLFW.GLFW_KEY_PERIOD
+        const val SLASH = GLFW.GLFW_KEY_SLASH
+
+        // Numpad
+        const val NUMPAD_0 = GLFW.GLFW_KEY_KP_0
+        const val NUMPAD_1 = GLFW.GLFW_KEY_KP_1
+        const val NUMPAD_2 = GLFW.GLFW_KEY_KP_2
+        const val NUMPAD_3 = GLFW.GLFW_KEY_KP_3
+        const val NUMPAD_4 = GLFW.GLFW_KEY_KP_4
+        const val NUMPAD_5 = GLFW.GLFW_KEY_KP_5
+        const val NUMPAD_6 = GLFW.GLFW_KEY_KP_6
+        const val NUMPAD_7 = GLFW.GLFW_KEY_KP_7
+        const val NUMPAD_8 = GLFW.GLFW_KEY_KP_8
+        const val NUMPAD_9 = GLFW.GLFW_KEY_KP_9
+        const val NUMPAD_DECIMAL = GLFW.GLFW_KEY_KP_DECIMAL
+        const val NUMPAD_DIVIDE = GLFW.GLFW_KEY_KP_DIVIDE
+        const val NUMPAD_MULTIPLY = GLFW.GLFW_KEY_KP_MULTIPLY
+        const val NUMPAD_SUBTRACT = GLFW.GLFW_KEY_KP_SUBTRACT
+        const val NUMPAD_ADD = GLFW.GLFW_KEY_KP_ADD
+        const val NUMPAD_ENTER = GLFW.GLFW_KEY_KP_ENTER
+        const val NUMPAD_EQUAL = GLFW.GLFW_KEY_KP_EQUAL
     }
 }
