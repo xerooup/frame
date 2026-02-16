@@ -3,7 +3,6 @@ package io.github.xerooup.frame3d.graphics.internal;
 import io.github.xerooup.frame3d.graphics.RenderContext;
 import io.github.xerooup.frame3d.graphics.material.Material;
 import io.github.xerooup.frame3d.graphics.material.MaterialType;
-import io.github.xerooup.frame3d.graphics.mesh.Mesh;
 import io.github.xerooup.frame3d.graphics.shader.DefaultShader;
 import io.github.xerooup.frame3d.graphics.shader.Shader;
 import org.joml.Matrix4f;
